@@ -1,0 +1,46 @@
+@page
+@model PrusApp.Pages.Courses.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RouteNode</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteNode.Arrival)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RouteNode.Arrival)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteNode.Departure)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RouteNode.Departure)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteNode.DistributionCenter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RouteNode.DistributionCenter.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteNode.Package)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RouteNode.Package.PackageNumID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="RouteNode.RouteNodeID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

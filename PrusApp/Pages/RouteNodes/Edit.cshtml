@@ -1,0 +1,50 @@
+@page
+@model PrusApp.Pages.Courses.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>RouteNode</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RouteNode.RouteNodeID" />
+            <div class="form-group">
+                <label asp-for="RouteNode.DistributionCenterID" class="control-label"></label>
+                <select asp-for="RouteNode.DistributionCenterID" class="form-control" asp-items="ViewBag.DistributionCenterID"></select>
+                <span asp-validation-for="RouteNode.DistributionCenterID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RouteNode.PackageNumID" class="control-label"></label>
+                <select asp-for="RouteNode.PackageNumID" class="form-control" asp-items="ViewBag.PackageNumID"></select>
+                <span asp-validation-for="RouteNode.PackageNumID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RouteNode.Arrival" class="control-label"></label>
+                <input asp-for="RouteNode.Arrival" class="form-control" />
+                <span asp-validation-for="RouteNode.Arrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RouteNode.Departure" class="control-label"></label>
+                <input asp-for="RouteNode.Departure" class="form-control" />
+                <span asp-validation-for="RouteNode.Departure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

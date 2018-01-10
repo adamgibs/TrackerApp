@@ -1,0 +1,54 @@
+@page
+@model PrusApp.Pages.Courses.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RouteNode[0].Arrival)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RouteNode[0].Departure)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteNode[0].DistributionCenter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteNode[0].Package)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RouteNode) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistributionCenter.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Package.PackageNumID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RouteNodeID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RouteNodeID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RouteNodeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
